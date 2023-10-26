@@ -1,10 +1,10 @@
 # atom map
 
-atom-map index，使用fork/join机制快速创建索引。
+atom-map index，使用线程池快速创建索引。
 
 * [查看mint到了那个节点](https://www.satsx.io/live-mint)
 
-```mermaid
+```txt
 在索引 1001 和 1002 处的元素不满足条件: 1001 ～ 1004
 在索引 1003 和 1004 处的元素不满足条件: 1005 ～ 1007
 在索引 1004 和 1005 处的元素不满足条件: 1007 ～ 1010
