@@ -76,14 +76,17 @@ def handler(start, end, num_processes):
         merged_array.extend(arr)
     unique_numbers = list(set(merged_array))
     merged_array = sorted(unique_numbers)
-    for i in range(len(merged_array) - 1):
-        if merged_array[i] + 1 != merged_array[i + 1]:
-            print(f"在索引 {i} 和 {i + 1} 处的元素不满足条件: {merged_array[i]} ～ {merged_array[i + 1]}")
     with open('output.txt', 'a') as file:
         for item in merged_array:
             file.write(str(item) + "\n")
+    with open("output.txt", "r") as file:
+        queryArray = [int(row.strip()) for row in file]
+        queryArray = list(set(queryArray))
+        queryArray = sorted(queryArray)
+        for i in range(len(queryArray) - 1):
+            if int(queryArray[i]) + 1 != int(queryArray[i + 1]):
+                print(f"在索引 {i} 和 {i + 1} 处的元素不满足条件: {queryArray[i]} ～ {queryArray[i + 1]}")
 
 
 if __name__ == '__main__':
-     # // 60526
-    handler(55706, 60526, 16)
+    handler(61720, 61721, 1)
