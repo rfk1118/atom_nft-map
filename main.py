@@ -89,4 +89,4 @@ def handler(start, end, num_processes):
 
 
 if __name__ == '__main__':
-    handler(61720, 62836, 1)
+    handler(62836, 63636, 16)
