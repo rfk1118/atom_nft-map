@@ -86,7 +86,7 @@ def handler(start, end, num_processes):
         queryArray = [int(row.strip()) for row in file]
         queryArray = list(set(queryArray))
         queryArray = sorted(queryArray)
-        my_dict = {index: value for index, value in enumerate(queryArray)}
+        my_dict = {value: value for index, value in enumerate(queryArray)}
         for i in range(len(queryArray) - 1):
             if int(queryArray[i]) + 1 != int(queryArray[i + 1]):
                 print(f"在索引 {i} 和 {i + 1} 处的元素不满足条件: {queryArray[i]} ～ {queryArray[i + 1]}")
