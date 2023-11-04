@@ -7,7 +7,7 @@ import requests
 requestUrl = "https://ep.atomicals.xyz/proxy/blockchain.atomicals.get"
 queryNow = "https://ep.atomicals.xyz/proxy/blockchain.atomicals.list"
 queryNowBody = {"params": [48, -1, 0]}
-max_retry = 3
+max_retry = 8
 
 
 def split_range_into_chunks(start, end, chunk_size):
@@ -113,7 +113,7 @@ def record_and_loop():
                     if atomical_count is not None:
                         atomical_count = atomical_count - 1
                         if atomical_count > current:
-                            handler(current, atomical_count, 8)
+                            handler(current, atomical_count, 2)
                             file.write(str(atomical_count) + "\n")
                         else:
                             print(f"current:{current},atomical_count:{atomical_count}")
