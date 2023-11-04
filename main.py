@@ -125,4 +125,23 @@ def record_and_loop():
 
 
 if __name__ == '__main__':
-    record_and_loop()
+    # record_and_loop()
+    merged_array = []
+    result = []
+    with open('output.txt', 'r+') as file:
+        queryArray = [int(row.strip()) for row in file]
+        queryArray = list(set(queryArray))
+        queryArray = sorted(queryArray)
+        my_dict = {value: value for index, value in enumerate(queryArray)}
+        for i in range(len(queryArray) - 1):
+            if int(queryArray[i]) + 1 != int(queryArray[i + 1]):
+                print(f"在索引 {i} 和 {i + 1} 处的元素不满足条件: {queryArray[i]} ～ {queryArray[i + 1]}")
+        for i in range(1000, 9999):
+            if i in my_dict:
+                print(f"{i} 存在于字典中，对应的值是 {my_dict[i]}")
+            else:
+                print(f"{i} 不存在于字典中")
+                result.append(i)
+    with open("can_mint.txt", "w") as file:
+        for e in result:
+            file.write(str(e) + "\n")
